@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Manyu Enterprises — Innovate, Integrate, Elevate. Technology, business, digital growth and cloud solutions.">
   <meta name="theme-color" content="#050914">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Manyu Enterprises | Innovate • Integrate • Elevate">
+  <meta property="og:description" content="Practical technology, business and digital solutions for a stronger business future.">
   <title>Manyu Enterprises | Innovate • Integrate • Elevate</title>
 
   <!-- Bootstrap 5 -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -25,7 +29,7 @@
       --muted:#9eabc0;
       --line:rgba(255,255,255,.10);
     }
-    *{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
     body{
       background:var(--dark);
       color:#f7fbff;
@@ -33,6 +37,12 @@
       overflow-x:hidden;
     }
     a{text-decoration:none}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+    .skip-link{
+      position:fixed;top:-60px;left:16px;z-index:1100;padding:10px 16px;border-radius:10px;
+      background:var(--cyan);color:#02101a;font-weight:800
+    }
+    .skip-link:focus{top:12px}
     .navbar{
       background:rgba(5,9,20,.78);
       backdrop-filter:blur(18px);
@@ -50,10 +60,12 @@
     }
     .btn-brand:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(22,217,255,.30);color:#02101a}
     .btn-outline-light{border-color:rgba(255,255,255,.25)}
+    .navbar-apply{white-space:nowrap}
     .hero{
       min-height:780px;
       position:relative;
       display:flex;align-items:center;
+      overflow:hidden;
       padding-top:100px;
       background:
         radial-gradient(circle at 82% 28%,rgba(22,119,255,.20),transparent 27%),
@@ -190,24 +202,41 @@
     @media(max-width:991px){
       .hero{min-height:auto;padding:145px 0 90px}
       .hero-logo{margin-top:45px}
-      .navbar .btn-brand{display:none}
+      .navbar .btn-brand{display:inline-flex}
+      .navbar .container{flex-wrap:wrap}
+      .navbar-brand{margin-right:auto}
+      .navbar-toggler{margin-left:.5rem}
+      .navbar-collapse{flex-basis:100%}
+      .navbar-nav{padding-top:.75rem}
     }
     @media(max-width:575px){
       section{padding:75px 0}
       .about-panel,.cta{padding:28px}
       .hero h1{letter-spacing:-.055em}
       .hero-copy{font-size:1rem}
+      .navbar-brand{margin-right:.25rem}
+      .navbar-brand.gap-2{gap:.35rem!important}
+      .navbar-brand span{font-size:.8rem}
+      .navbar-brand img{width:34px;height:34px}
+      .navbar-toggler{margin-left:.25rem;padding:.25rem .45rem}
+      .navbar-apply{padding:.45rem .6rem!important;font-size:.8rem}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
     }
   </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container py-2">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
-      <img src="logo.jpeg" alt="Manyu Enterprises">
+      <img src="logo.jpeg" alt="Manyu Enterprises" width="48" height="48" fetchpriority="high">
       <span>Manyu Enterprises</span>
     </a>
+    <a class="btn btn-brand navbar-apply rounded-pill px-3 px-lg-4 order-lg-3" href="#careers" aria-label="Apply for an opportunity"><span class="d-none d-sm-inline">Apply Now</span><span class="d-sm-none">Apply</span><i class="bi bi-arrow-up-right ms-1 d-none d-sm-inline" aria-hidden="true"></i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -218,12 +247,13 @@
         <li class="nav-item"><a class="nav-link" href="#careers">Apply</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a class="btn btn-brand rounded-pill px-4" href="#contact">Let's Talk <i class="bi bi-arrow-up-right ms-1"></i></a></li>
+        <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a class="btn btn-outline-light rounded-pill px-4" href="#contact">Let's Talk <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i></a></li>
       </ul>
     </div>
   </div>
 </nav>
 
+<main id="main-content">
 <header id="home" class="hero">
   <div class="hero-grid"></div><div class="glow one"></div><div class="glow two"></div>
   <div class="container position-relative">
@@ -238,12 +268,13 @@
         <h2 class="mt-4">Innovate <span class="text-white">•</span> Integrate <span class="text-white">•</span> Elevate</h2>
         <p class="hero-copy mt-4">We create modern, reliable and scalable solutions that help businesses move faster, work smarter and build a stronger digital future.</p>
         <div class="d-flex flex-wrap gap-3 mt-4">
-          <a class="btn btn-brand btn-lg rounded-pill px-4" href="#services">Explore Services <i class="bi bi-arrow-right ms-2"></i></a>
+          <a class="btn btn-brand btn-lg rounded-pill px-4" href="#careers">Apply Now <i class="bi bi-arrow-up-right ms-2" aria-hidden="true"></i></a>
+          <a class="btn btn-outline-light btn-lg rounded-pill px-4" href="#services">Explore Services <i class="bi bi-arrow-down ms-2" aria-hidden="true"></i></a>
           <a class="btn btn-outline-light btn-lg rounded-pill px-4" href="tel:+919534944195"><i class="bi bi-telephone me-2"></i>Talk to Us</a>
         </div>
       </div>
       <div class="col-lg-5 text-center">
-        <img class="hero-logo" src="logo.jpeg" alt="Manyu Enterprises logo">
+        <img class="hero-logo" src="logo.jpeg" alt="Manyu Enterprises logo" width="430" height="430" fetchpriority="high">
       </div>
     </div>
   </div>
@@ -322,7 +353,7 @@
               <h2 class="section-title mb-2">Share your profile with us.</h2>
               <p class="section-text mb-0">Fill in your details and attach your resume. Our team will get in touch if there is a suitable opportunity.</p>
             </div>
-            <div class="col-lg-4 text-lg-end"><span class="mini-badge"><i class="bi bi-shield-lock"></i> Your details are sent securely</span></div>
+            <div class="col-lg-4 text-lg-end"><span class="mini-badge"><i class="bi bi-file-earmark-lock"></i> Applicant information</span></div>
           </div>
 
           <!-- Replace YOUR_EMAIL@example.com with the inbox that should receive submissions. -->
@@ -366,7 +397,7 @@
               <div class="col-12">
                 <label class="form-label" for="applicantResume">Resume <span class="text-info">*</span></label>
                 <input class="form-control" id="applicantResume" name="_attachment" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
-                <div class="form-text">Attach a PDF, DOC or DOCX file (maximum 10 MB).</div>
+                <div class="form-text">Attach a PDF, DOC or DOCX file (maximum 10 MB). Please do not upload sensitive identity or financial documents.</div>
               </div>
               <div class="col-12">
                 <div class="form-check">
@@ -449,7 +480,7 @@
       <div class="col-lg-5">
         <div class="contact-card h-100 d-flex flex-column justify-content-between">
           <div>
-            <img src="logo.jpeg" alt="Manyu Enterprises" class="img-fluid rounded-4 mb-4" style="max-width:190px">
+            <img src="logo.jpeg" alt="Manyu Enterprises" class="img-fluid rounded-4 mb-4" width="190" height="190" loading="lazy" style="max-width:190px">
             <h4 class="fw-bold">Manyu Enterprises</h4>
             <p class="section-text">Innovate • Integrate • Elevate</p>
           </div>
@@ -462,6 +493,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="container">
@@ -478,7 +510,27 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const resumeInput = document.getElementById("applicantResume");
+  resumeInput.addEventListener("change", () => {
+    const file = resumeInput.files[0];
+    const maxBytes = 10 * 1024 * 1024;
+    const acceptedTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+    const acceptedExtensions = /\.(pdf|doc|docx)$/i;
+    let message = "";
+
+    if (file && file.size > maxBytes) {
+      message = "Please choose a resume smaller than 10 MB.";
+    } else if (file && !acceptedTypes.includes(file.type) && !acceptedExtensions.test(file.name)) {
+      message = "Please choose a PDF, DOC or DOCX resume.";
+    }
+
+    resumeInput.setCustomValidity(message);
+    resumeInput.reportValidity();
+  });
+</script>
 </body>
 </html>
