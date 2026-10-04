@@ -163,6 +163,24 @@
     .contact-row i{font-size:1.25rem;color:var(--cyan);width:25px}
     .contact-row small{display:block;color:#718198}
     .contact-row a{color:#fff}
+    .application-section{
+      background:radial-gradient(circle at 85% 20%,rgba(22,119,255,.12),transparent 28%),
+        linear-gradient(180deg,rgba(7,19,37,.35),rgba(5,9,20,0));
+    }
+    .application-card{
+      border:1px solid rgba(22,217,255,.18);border-radius:28px;padding:clamp(24px,5vw,48px);
+      background:linear-gradient(145deg,rgba(11,28,49,.96),rgba(5,12,24,.96));
+      box-shadow:0 24px 70px rgba(0,0,0,.22)
+    }
+    .application-card .form-label{color:#dce9f6;font-weight:650}
+    .application-card .form-control,.application-card .form-select{
+      min-height:50px;color:#f7fbff;background:#081526;border:1px solid rgba(255,255,255,.14)
+    }
+    .application-card .form-control:focus,.application-card .form-select:focus{
+      border-color:var(--cyan);box-shadow:0 0 0 .2rem rgba(22,217,255,.12)
+    }
+    .application-card .form-control::file-selector-button{color:#eaf7ff;background:#11253a;border:0}
+    .application-card .form-text,.application-card .form-check-label{color:var(--muted)}
     footer{border-top:1px solid var(--line);padding:35px 0;color:#7e8ba0}
     .social a{
       width:40px;height:40px;display:inline-grid;place-items:center;border:1px solid var(--line);
@@ -197,6 +215,7 @@
       <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#careers">Apply</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a class="btn btn-brand rounded-pill px-4" href="#contact">Let's Talk <i class="bi bi-arrow-up-right ms-1"></i></a></li>
@@ -286,6 +305,81 @@
             <li><i class="bi bi-check2"></i>Security focused</li>
             <li><i class="bi bi-check2"></i>Scalable infrastructure</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="careers" class="application-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="application-card">
+          <div class="row align-items-end g-3 mb-4">
+            <div class="col-lg-8">
+              <div class="section-kicker mb-2">Careers & Opportunities</div>
+              <h2 class="section-title mb-2">Share your profile with us.</h2>
+              <p class="section-text mb-0">Fill in your details and attach your resume. Our team will get in touch if there is a suitable opportunity.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end"><span class="mini-badge"><i class="bi bi-shield-lock"></i> Your details are sent securely</span></div>
+          </div>
+
+          <!-- Replace YOUR_EMAIL@example.com with the inbox that should receive submissions. -->
+          <form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New candidate profile - Manyu Enterprises">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label" for="applicantName">Name <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantName" name="Name" type="text" autocomplete="name" placeholder="Your full name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="applicantEmail">Email <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantEmail" name="Email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="applicantContact">Contact number <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantContact" name="Contact" type="tel" autocomplete="tel" placeholder="Your phone number" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="applicantEducation">Higher education <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantEducation" name="Higher Education" type="text" placeholder="Degree, course or qualification" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="applicantLocation">Location <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantLocation" name="Location" type="text" autocomplete="address-level2" placeholder="City, state" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="applicantRole">Role applied for <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantRole" name="Role" type="text" placeholder="e.g. Software Developer" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="applicantSalary">Expected in-hand salary <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantSalary" name="Expected Inhand Salary" type="text" placeholder="e.g. ₹35,000 per month" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="applicantExperience">Total experience <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantExperience" name="Total Experience" type="text" placeholder="e.g. 2 years / Fresher" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="applicantResume">Resume <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantResume" name="_attachment" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+                <div class="form-text">Attach a PDF, DOC or DOCX file (maximum 10 MB).</div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" id="applicantConsent" name="Consent" type="checkbox" value="Agreed" required>
+                  <label class="form-check-label" for="applicantConsent">I agree to share these details and my resume with Manyu Enterprises for recruitment purposes. <span class="text-info">*</span></label>
+                </div>
+              </div>
+              <div class="col-12 d-flex flex-wrap align-items-center gap-3">
+                <button class="btn btn-brand btn-lg rounded-pill px-4" type="submit">Submit profile <i class="bi bi-send ms-2"></i></button>
+                <span class="small text-secondary">Required fields are marked with <span class="text-info">*</span>.</span>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
