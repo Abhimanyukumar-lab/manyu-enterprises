@@ -147,26 +147,30 @@
             <div class="col-lg-4 text-lg-end"><span class="mini-badge"><i class="bi bi-file-earmark-lock"></i> Applicant information</span></div>
           </div>
 
-          <!-- Replace YOUR_EMAIL@example.com with the inbox that should receive submissions. -->
           <form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_subject" value="New candidate profile - Manyu Enterprises">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
             <div class="row g-4">
               <div class="col-md-6">
                 <label class="form-label" for="applicantName">Name <span class="text-info">*</span></label>
                 <input class="form-control" id="applicantName" name="Name" type="text" autocomplete="name" placeholder="Your full name" required>
               </div>
               <div class="col-md-6">
+                <label class="form-label" for="applicantDob">Date of birth <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantDob" name="Date of Birth" type="date" required>
+              </div>
+              <div class="col-md-6">
                 <label class="form-label" for="applicantEmail">Email <span class="text-info">*</span></label>
                 <input class="form-control" id="applicantEmail" name="Email" type="email" autocomplete="email" placeholder="you@example.com" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label" for="applicantContact">Contact number <span class="text-info">*</span></label>
+                <label class="form-label" for="applicantContact">Contact <span class="text-info">*</span></label>
                 <input class="form-control" id="applicantContact" name="Contact" type="tel" autocomplete="tel" placeholder="Your phone number" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label" for="applicantEducation">Higher education <span class="text-info">*</span></label>
+                <label class="form-label" for="applicantEducation">Higher Education <span class="text-info">*</span></label>
                 <input class="form-control" id="applicantEducation" name="Higher Education" type="text" placeholder="Degree, course or qualification" required>
               </div>
               <div class="col-md-6">
@@ -174,16 +178,20 @@
                 <input class="form-control" id="applicantLocation" name="Location" type="text" autocomplete="address-level2" placeholder="City, state" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label" for="applicantRole">Role applied for <span class="text-info">*</span></label>
-                <input class="form-control" id="applicantRole" name="Role" type="text" placeholder="e.g. Software Developer" required>
+                <label class="form-label" for="applicantRole">Preferred Job Role <span class="text-info">*</span></label>
+                <input class="form-control" id="applicantRole" name="Preferred Job Role" type="text" placeholder="e.g. Software Developer" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label" for="applicantSalary">Expected in-hand salary <span class="text-info">*</span></label>
+                <label class="form-label" for="applicantSalary">Expected Inhand Salary <span class="text-info">*</span></label>
                 <input class="form-control" id="applicantSalary" name="Expected Inhand Salary" type="text" placeholder="e.g. ₹35,000 per month" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label" for="applicantExperience">Total experience <span class="text-info">*</span></label>
+                <label class="form-label" for="applicantExperience">Total Experience <span class="text-info">*</span></label>
                 <input class="form-control" id="applicantExperience" name="Total Experience" type="text" placeholder="e.g. 2 years / Fresher" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="applicantSkills">Skills <span class="text-info">*</span></label>
+                <textarea class="form-control" id="applicantSkills" name="Skills" rows="4" placeholder="List your key skills" required></textarea>
               </div>
               <div class="col-12">
                 <label class="form-label" for="applicantResume">Resume <span class="text-info">*</span></label>
